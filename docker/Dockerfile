@@ -7,7 +7,7 @@ COPY /password.txt /fitnesse/
 
 WORKDIR /fitnesse
 
-CMD java -classpath /fitnesse/fitnesse.jar  -DsystemUnderTestUrl="http://systemone:8080/systemone/" -DappTokenVerifierUrl="http://apptokenverifier:8080/apptokenverifier/" fitnesseMain.FitNesseMain -p 8090 -a /fitnesse/password.txt
+CMD java -classpath /fitnesse/fitnesse.jar  -DsystemUnderTestUrl="http://systemone:8080/systemone/" -DappTokenVerifierUrl="http://apptokenverifier:8080/apptokenverifier/"  -DidpLoginUrl="http://idplogin:8080/idplogin/" -DgatekeeperServerUrl="http://gatekeeper:8080/gatekeeperserver/" fitnesseMain.FitNesseMain -p 8090 -a /fitnesse/password.txt
 
 #java -jar fitnesse-standalone.jar -p 8090 -o -a password.txt
 
