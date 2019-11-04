@@ -1,4 +1,4 @@
-FROM  openjdk:11-jre-slim
+FROM  adoptopenjdk/openjdk12:alpine
 
 COPY /fitnesse.jar /fitnesse/
 COPY /FitNesseRoot /fitnesse/FitNesseRoot
