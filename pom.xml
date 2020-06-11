@@ -33,7 +33,7 @@
 	<properties>
 		<outputDirectory>${project.build.directory}/docker2</outputDirectory>
 
-		<corafitnesse.version>2.4-SNAPSHOT</corafitnesse.version>
+		<corafitnesse.version>2.4.0</corafitnesse.version>
 	</properties>
 
 	<scm>
