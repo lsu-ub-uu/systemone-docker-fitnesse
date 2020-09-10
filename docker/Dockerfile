@@ -1,4 +1,5 @@
-FROM  openjdk:14-jdk-alpine
+ARG CORA_DOCKER_VERSION
+FROM cora-docker-java:${CORA_DOCKER_VERSION}
 
 COPY /fitnesse.jar /fitnesse/
 COPY /FitNesseRoot /fitnesse/FitNesseRoot
