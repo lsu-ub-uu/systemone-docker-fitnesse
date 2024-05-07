@@ -29,7 +29,7 @@
 		<outputDirectory>${project.build.directory}/docker2</outputDirectory>
 
 		<cora-docker-java.version>1.6.0</cora-docker-java.version>
-		<corafitnesse.version>2.21-SNAPSHOT</corafitnesse.version>
+		<corafitnesse.version>2.22-SNAPSHOT</corafitnesse.version>
 	</properties>
 
 	<scm>
