@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>se.uu.ub.cora</groupId>
 		<artifactId>cora-parent-docker</artifactId>
-		<version>1.0.0</version>
+		<version>1.1.0</version>
 	</parent>
 
 	<artifactId>systemone-docker-fitnesse</artifactId>
@@ -25,7 +25,7 @@
 	<name>The SystemOne Fitnesse docker</name>
 
 	<properties>
-		<cora-docker-java.version>1.7.0</cora-docker-java.version>
+		<cora-docker-java.version>1.8.0</cora-docker-java.version>
 		<corafitnesse.version>2.40-SNAPSHOT</corafitnesse.version>
 		<!-- Override property so docker-build profile activates in this module -->
 		<docker.build.activate>true</docker.build.activate>
@@ -95,6 +95,32 @@
 							</artifactItems>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+				<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${exec-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>docker-build</id>
+						<phase>install</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>docker</executable>
+							<workingDirectory>${outputDirectory}</workingDirectory>
+							<arguments>
+								<argument>build</argument>
+								<argument>-t</argument>
+								<argument>${project.artifactId}:${project.version}</argument>
+								<argument>--build-arg</argument>
+								<argument>CORA_DOCKER_VERSION=${cora-docker-java.version}</argument>
+								<argument>.</argument>
+							</arguments>
 						</configuration>
 					</execution>
 				</executions>
