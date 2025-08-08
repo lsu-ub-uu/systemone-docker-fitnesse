@@ -1,22 +1,15 @@
 #!/bin/bash
-set -e
+: "${BASE_URL:=http://localhost:8080/systemone/}"
+: "${LOGIN_URL:=http://localhost:8080/login/}"
+: "${IDP_LOGIN_URL:=http://localhost:8080/idplogin/}"
+: "${GATEKEEPER_SERVER_URL:=http://localhost:8080/gatekeeperserver/}"
 
-SYSTEM_UNDER_TEST_URL="${SYSTEM_UNDER_TEST_URL:-http://systemone:8080/systemone/}"
-APPTOKEN_VERIFIER_URL="${APPTOKEN_VERIFIER_URL:-http://login:8080/login/}"
-IDPLOGIN_URL="${IDPLOGIN_URL:-http://idplogin:8080/idplogin/}"
-GATEKEEPER_SERVER_URL="${GATEKEEPER_SERVER_URL:-http://gatekeeper:8080/gatekeeperserver/}"
-
-JAVA_CMD=(
-  java
+exec java
   -classpath /fitnesse/fitnesse.jar
-  -DsystemUnderTestUrl="$SYSTEM_UNDER_TEST_URL"
-  -DappTokenVerifierUrl="$APPTOKEN_VERIFIER_URL"
-  -DidpLoginUrl="$IDPLOGIN_URL"
+  -DsystemUnderTestUrl="$BASE_URL"
+  -DappTokenVerifierUrl="$LOGIN_URL"
+  -DidpLoginUrl="$IDP_LOGIN_URL"
   -DgatekeeperServerUrl="$GATEKEEPER_SERVER_URL"
   fitnesseMain.FitNesseMain
   -p 8090
   -a /fitnesse/password.txt
-)
-
-echo "Running command: ${JAVA_CMD[@]}"
-exec "${JAVA_CMD[@]}"
