@@ -18,7 +18,7 @@
 
 	<artifactId>systemone-docker-fitnesse</artifactId>
 	<packaging>pom</packaging>
-	<version>1.12.2-SNAPSHOT</version>
+	<version>1.12.3-SNAPSHOT</version>
 	<name>The SystemOne Fitnesse docker</name>
 
 	<properties>
