@@ -22,7 +22,7 @@
 	<name>The SystemOne Fitnesse docker</name>
 
 	<properties>
-		<cora-docker-java.version>1.10.0</cora-docker-java.version>
+		<cora-docker-java.version>1.11.0</cora-docker-java.version>
 		<corafitnesse.version>2.109.0</corafitnesse.version>
 		<!-- Override property so docker-build profile activates in this module -->
 		<docker.build.activate>true</docker.build.activate>
